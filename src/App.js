@@ -1,13 +1,13 @@
-import './App.css';
-import Calculator from './components/Calculator';
+import {useState, useRef} from "react"; 
+import Calculator from "./components/Calculator";
+import "./App.css";
 
-export default function App() {  
-  
-  return (
-    <div className="container">
-      <Calculator />     
-     
-    </div>
-  );
-}
-
+function App() {  
+  return ( 
+    <div className="App"> 
+      <Calculator />
+    </div> 
+  ); 
+} 
+ 
+export default App; 
