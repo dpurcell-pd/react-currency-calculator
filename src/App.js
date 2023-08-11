@@ -1,11 +1,12 @@
 import './App.css';
+import {useState, useRef} from "react";
+import Calculator from './components/Calculator';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-     
+    <div className="container">
+      <Calculator />          
     </div>
   );
 }
 
-export default App;
