@@ -25,6 +25,11 @@ export default function Calculator() {
         setTotal(total => total / Number(inputRef.current.value)) // <--- updates total in state with division
     }
 
+    const clearInput = e => {
+        e.preventDefault();
+        inputRef.current.value = null;
+    }
+
   return (
     <div className="calculator">
         <h3>React Currency Calculator</h3>
@@ -40,6 +45,7 @@ export default function Calculator() {
             <button onClick={subtract}>-</button>
             <button onClick={multiply}>*</button>
             <button onClick={divide}>/</button>
+            <button onClick={clearInput}>Clear Input</button>
         </form>        
     </div>
   );
