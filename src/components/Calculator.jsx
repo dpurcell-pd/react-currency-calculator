@@ -17,10 +17,12 @@ export default function Calculator() {
     
     const multiply = e => {
         e.preventDefault();
+        setTotal(total => total * Number(inputRef.current.value)) // <--- updates total in state with multiplication
     }
     
     const divide = e => {
         e.preventDefault();
+        setTotal(total => total / Number(inputRef.current.value)) // <--- updates total in state with division
     }
 
   return (
@@ -36,6 +38,8 @@ export default function Calculator() {
                 />
             <button onClick={add}>+</button>
             <button onClick={subtract}>-</button>
+            <button onClick={multiply}>*</button>
+            <button onClick={divide}>/</button>
         </form>        
     </div>
   );
