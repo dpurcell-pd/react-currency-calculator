@@ -11,12 +11,12 @@ export default function Calculator() {
     }
     
     const subtract = e => {
-        e.preventDefalt();
-        
+        e.preventDefault();
+        setTotal(total => total - Number(inputRef.current.value)) // <--- updates total in state with subtraction 
     }
     
     const multiply = e => {
-        e.preventDefalt();
+        e.preventDefault();
     }
     
     const divide = e => {
@@ -35,6 +35,7 @@ export default function Calculator() {
                 placeholder='Enter a number'
                 />
             <button onClick={add}>+</button>
+            <button onClick={subtract}>-</button>
         </form>        
     </div>
   );
