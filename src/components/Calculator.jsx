@@ -1,4 +1,5 @@
 import React, {useState, useRef} from "react";
+import {Button} from "react-bootstrap";
 
 export default function Calculator() {
     const inputRef = useRef(null); // <--- reference object for input element (stores current value)
@@ -36,22 +37,31 @@ export default function Calculator() {
     }
 
   return (
-    <div className="calculator">
-        <h3>React Currency Calculator</h3>
+    <div className="calculator">       
+        <h3>React Currency Calculator</h3>        
         <form>
             <span ref={totalRef}>{total}</span>
+            <br /><br />
             <input 
                 pattern='[0-9]'
                 ref={inputRef}
                 type="number" 
                 placeholder='Enter a number'
                 />
-            <button onClick={add}>+</button>
-            <button onClick={subtract}>-</button>
-            <button onClick={multiply}>*</button>
-            <button onClick={divide}>/</button>
-            <button onClick={clearInput}>Clear Input</button>
-            <button onClick={clearTotal}>Clear Total</button>
+            <Button 
+                onClick={add}>+</Button>
+            <Button 
+                onClick={subtract}>-</Button>
+            <Button 
+                onClick={multiply}>*</Button>
+            <Button 
+                onClick={divide}>/</Button>
+            <Button 
+                variant="danger" 
+                onClick={clearInput}>Clear Input</Button>
+            <Button
+                variant="danger" 
+                onClick={clearTotal}>Clear Total</Button>
         </form>        
     </div>
   );
