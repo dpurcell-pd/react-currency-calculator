@@ -27,7 +27,12 @@ export default function Calculator() {
 
     const clearInput = e => {
         e.preventDefault();
-        inputRef.current.value = null;
+        inputRef.current.value = null; // <--- resets the input element text to placeholder
+    }
+
+    const clearTotal = e => {
+        e.preventDefault();
+        setTotal(0); // <--- resets the total state variable 
     }
 
   return (
@@ -46,6 +51,7 @@ export default function Calculator() {
             <button onClick={multiply}>*</button>
             <button onClick={divide}>/</button>
             <button onClick={clearInput}>Clear Input</button>
+            <button onClick={clearTotal}>Clear Total</button>
         </form>        
     </div>
   );
