@@ -76,7 +76,7 @@ export default function Calculator() {
 
   return (
     <div className="calculator">
-        <Alert variant="success">React Currency Calculator</Alert>       
+        <Alert variant="success">React Currency Calculator v1.0</Alert>       
         <form>
             <h1>
                 <Badge className="total" bg="dark" ref={totalRef}>{total}</Badge>                
