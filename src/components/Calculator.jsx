@@ -1,11 +1,14 @@
 import React, {useState, useRef} from "react";
-import {Button} from "react-bootstrap";
+import {Button, Navbar, Form} from "react-bootstrap";
+
 
 export default function Calculator() {
     const inputRef = useRef(null); // <--- reference object for input element (stores current value)
     const totalRef = useRef(null); // <--- reference object for total element (stores result of equation)
     const [total, setTotal] = useState(0); // <--- state variable and setter function for total
 
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    
     const add = e => {
         e.preventDefault(); // <--- prevents refresh on event trigger 
         setTotal(total => total + Number(inputRef.current.value)); // <--- updates total in state with additon (casts inputRefcurrent.value from String to Number)                
@@ -37,9 +40,12 @@ export default function Calculator() {
     }
 
   return (
-    <div className="calculator">       
-        <h3>React Currency Calculator</h3>        
-        <form>
+    <div className="calculator">
+        <Navbar bg="success" variant="dark" className="text-center">            
+            <h3 className="text-center">React Currency Calculator</h3>        
+        </Navbar>                
+        <Form>
+            <Form.Group>
             <span ref={totalRef}>{total}</span>
             <br /><br />
             <input 
@@ -62,7 +68,8 @@ export default function Calculator() {
             <Button
                 variant="danger" 
                 onClick={clearTotal}>Clear Total</Button>
-        </form>        
+            </Form.Group>            
+        </Form>        
     </div>
   );
 }
