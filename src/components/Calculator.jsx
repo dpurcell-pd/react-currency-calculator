@@ -8,18 +8,37 @@ export default function Calculator() {
     const [total, setTotal] = useState(0); // <--- state variable and setter function for total
 
     const API_KEY = process.env.REACT_APP_API_KEY;
-    const TOP_TEN_CURRENCIES = "KWD,BHD,OMR,JOD,GBP,GIP,KYD,CHF,EUR,USD";
-
+    const TOP_TEN_CURRENCIES = ["KWD","BHD","OMR","JOD","GBP","GIP","KYD","CHF","EUR","USD"]   
+    const TOP_TEN_CURRENCIES_NAME = [
+        "Kuwaiti Dinar",
+        "Bahraini Dinar",
+        "Omani Rial",
+        "Jordanian Dinar",
+        "British Pound",
+        "Gibraltar Pound",
+        "Cayman Islands Dollar",
+        "Swiss Franc",
+        "Euro",
+        "United States Dollar"
+    ];    
+    
     const ratesData = async e => {
+        let index = 0;
         e.preventDefault();
         try {
             const res = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${API_KEY}&symbols=${TOP_TEN_CURRENCIES}`);
             const data = await res.json();
-            console.log(data);
+            const {rates} = data;            
+            Object.entries(rates).forEach(([key, value]) => {
+                console.log(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${value}`);
+                index++;
+            })
         } catch (error) {
             console.log(error);
         }
     }
+    
+    
         
     const add = e => {
         e.preventDefault(); // <--- prevents refresh on event trigger 
