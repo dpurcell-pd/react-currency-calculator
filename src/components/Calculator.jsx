@@ -35,13 +35,13 @@ export default function Calculator() {
             const {rates} = data;
             if (total > 0) {
                 Object.entries(rates).forEach(([key, value]) => {
-                    arr.push(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${(value * total).toFixed(3)}`);
+                    arr.push(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${(value * total).toFixed(3)}`); // <--- pushes formatted currency string to temp array 
                     index++;
                 })
             } else {
                 alert("To perform conversions, enter a number greater than 0 and update the total.");
             } 
-            setCurrenciesArray(arr);           
+            setCurrenciesArray(arr);           // <--- updates state with populated array
         } catch (error) {
             console.log(error);
         }
@@ -81,9 +81,9 @@ export default function Calculator() {
         if (currenciesArray.length > 0) {
             currenciesArray.map(element => {
                 console.log(element);
-            })
+            }) 
         }
-    })
+    }) // <--- updates console display with currency array on state update
 
   return (
     <div className="calculator">
