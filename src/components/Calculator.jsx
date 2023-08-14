@@ -5,10 +5,9 @@ import {Button, Navbar, Form} from "react-bootstrap";
 export default function Calculator() {
     const inputRef = useRef(null); // <--- reference object for input element (stores current value)
     const totalRef = useRef(null); // <--- reference object for total element (stores result of equation)
-    const [total, setTotal] = useState(0); // <--- state variable and setter function for total
-
+    const [total, setTotal] = useState(0); // <--- state variable and setter function for total    
     const API_KEY = process.env.REACT_APP_API_KEY;
-    const TOP_TEN_CURRENCIES = ["KWD","BHD","OMR","JOD","GBP","GIP","KYD","CHF","EUR","USD"]   
+    const TOP_TEN_CURRENCIES = ["KWD","BHD","OMR","JOD","GBP","GIP","KYD","CHF","EUR","USD"] // <--- currencies for fetch URL
     const TOP_TEN_CURRENCIES_NAME = [
         "Kuwaiti Dinar",
         "Bahraini Dinar",
@@ -20,7 +19,7 @@ export default function Calculator() {
         "Swiss Franc",
         "Euro",
         "United States Dollar"
-    ];
+    ]; // <--- currency names for display
     
    
     
@@ -31,11 +30,16 @@ export default function Calculator() {
         try {
             const res = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${API_KEY}&symbols=${TOP_TEN_CURRENCIES}`);
             const data = await res.json();
-            const {rates} = data;            
-            Object.entries(rates).forEach(([key, value]) => {
-                console.log(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${value * total}`);
-                index++;
-            })
+            const {rates} = data;
+            if (total !== 0) {
+                Object.entries(rates).forEach(([key, value]) => {
+                    console.log(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${value * total}`);
+                    index++;
+                })
+            } else {
+                alert("Please enter a conversion amount!");
+            }            
+            
         } catch (error) {
             console.log(error);
         }
