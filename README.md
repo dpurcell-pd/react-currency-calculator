@@ -6,7 +6,7 @@ Ex. Entering 25 into the input box and pressing + will update the "total" variab
 
 Both the input box and the "total" state variable can be reset at any time via their respective Clear Input / Clear Total buttons.
 
-Additionally, when the "total" state value is assigned any number greater than zero, pressing the "Get Rates" button will convert the value of "total" to the top 10 global currencies. 
+Additionally, when the "total" state value is assigned any number greater than zero, pressing the "Get Rates" button will convert the value of "total" to the top 10 global currencies (as of August 2023). 
 
 Please note that the current version of this application only supports conversions from Euros.
 

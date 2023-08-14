@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import "react-bootstrap/dist/react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Alert, Badge, Button} from "react-bootstrap";
@@ -8,6 +8,7 @@ export default function Calculator() {
     const inputRef = useRef(null); // <--- reference object for input element (stores current value)
     const totalRef = useRef(null); // <--- reference object for total element (stores result of equation)
     const [total, setTotal] = useState(0); // <--- state variable and setter function for total    
+    const [currenciesArray, setCurrenciesArray] = useState([]);
     const API_KEY = process.env.REACT_APP_API_KEY;
     const TOP_TEN_CURRENCIES = ["KWD","BHD","OMR","JOD","GBP","GIP","KYD","CHF","EUR","USD"] // <--- currencies for fetch URL
     const TOP_TEN_CURRENCIES_NAME = [
@@ -21,9 +22,11 @@ export default function Calculator() {
         "Swiss Franc",
         "Euro",
         "United States Dollar"
-    ]; // <--- currency names for display    
-    
+    ]; // <--- currency names for display
+       
+            
     const ratesData = async e => {
+        let arr = [];
         let index = 0;
         e.preventDefault();
         try {
@@ -32,13 +35,13 @@ export default function Calculator() {
             const {rates} = data;
             if (total > 0) {
                 Object.entries(rates).forEach(([key, value]) => {
-                    console.log(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${(value * total).toFixed(3)}`);
+                    arr.push(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${(value * total).toFixed(3)}`);
                     index++;
                 })
             } else {
                 alert("To perform conversions, enter a number greater than 0 and update the total.");
-            }            
-            
+            } 
+            setCurrenciesArray(arr);           
         } catch (error) {
             console.log(error);
         }
@@ -73,6 +76,14 @@ export default function Calculator() {
         e.preventDefault();
         setTotal(0); // <--- resets the total state variable 
     }
+
+    useEffect(() => {
+        if (currenciesArray.length > 0) {
+            currenciesArray.map(element => {
+                console.log(element);
+            })
+        }
+    })
 
   return (
     <div className="calculator">
