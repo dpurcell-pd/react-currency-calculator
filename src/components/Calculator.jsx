@@ -30,13 +30,13 @@ export default function Calculator() {
             const res = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${API_KEY}&symbols=${TOP_TEN_CURRENCIES}`);
             const data = await res.json();
             const {rates} = data;
-            if (total !== 0) {
+            if (total <= 0) {
                 Object.entries(rates).forEach(([key, value]) => {
                     console.log(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${value * total}`);
                     index++;
                 })
             } else {
-                alert("Please enter a conversion amount!");
+                alert("Please enter a conversion amount greater than 0!");
             }            
             
         } catch (error) {
