@@ -8,7 +8,18 @@ export default function Calculator() {
     const [total, setTotal] = useState(0); // <--- state variable and setter function for total
 
     const API_KEY = process.env.REACT_APP_API_KEY;
-    
+
+    const ratesData = async e => {
+        e.preventDefault();
+        try {
+            const res = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${API_KEY}`);
+            const data = await res.json();
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+        
     const add = e => {
         e.preventDefault(); // <--- prevents refresh on event trigger 
         setTotal(total => total + Number(inputRef.current.value)); // <--- updates total in state with additon (casts inputRefcurrent.value from String to Number)                
@@ -41,7 +52,7 @@ export default function Calculator() {
 
   return (
     <div className="calculator">
-        <Navbar bg="success" variant="dark" className="text-center">            
+        <Navbar bg="success" variant="dark">             
             <h3 className="text-center">React Currency Calculator</h3>        
         </Navbar>                
         <Form>
@@ -68,6 +79,10 @@ export default function Calculator() {
             <Button
                 variant="danger" 
                 onClick={clearTotal}>Clear Total</Button>
+            <Button 
+                variant="success"
+                onClick={ratesData}
+            >Get Rates</Button>            
             </Form.Group>            
         </Form>        
     </div>
