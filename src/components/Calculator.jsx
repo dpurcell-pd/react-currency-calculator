@@ -78,6 +78,7 @@ export default function Calculator() {
 
     useEffect(() => {
         if (currenciesArray.length > 0) {
+            console.clear();
             currenciesArray.map(element => {
                 console.log(element);
             }) 

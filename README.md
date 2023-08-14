@@ -11,3 +11,13 @@ Additionally, when the "total" state value is assigned any number greater than z
 Please note that the current version of this application only supports conversions from Euros.
 
 
+Technologies Used:
+
+Exchanges Rates API: https://exchangeratesapi.io/
+HTML / CSS / Bootstrap / JavaScript / React 
+
+Installation instructions:
+
+1. Clone a copy of the repository to your local machine.
+2. Open the root project directory in your terminal, and run npm install to download node_modules.
+3. Run npm start to serve the application locally.  
