@@ -1,5 +1,7 @@
 import React, {useState, useRef} from "react";
-import {Button, Navbar, Form} from "react-bootstrap";
+import "react-bootstrap/dist/react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {Alert, Badge, Button} from "react-bootstrap";
 
 
 export default function Calculator() {
@@ -19,10 +21,7 @@ export default function Calculator() {
         "Swiss Franc",
         "Euro",
         "United States Dollar"
-    ]; // <--- currency names for display
-    
-   
-    
+    ]; // <--- currency names for display    
     
     const ratesData = async e => {
         let index = 0;
@@ -43,9 +42,7 @@ export default function Calculator() {
         } catch (error) {
             console.log(error);
         }
-    }
-    
-    
+    }    
         
     const add = e => {
         e.preventDefault(); // <--- prevents refresh on event trigger 
@@ -79,39 +76,42 @@ export default function Calculator() {
 
   return (
     <div className="calculator">
-        <Navbar bg="success" variant="dark">             
-            <h3 className="text-center">React Currency Calculator</h3>        
-        </Navbar>                
-        <Form>
-            <Form.Group>
-            <span ref={totalRef}>{total}</span>
+        <Alert variant="success">React Currency Calculator</Alert>       
+        <form>
+            <h1>
+                <Badge className="total" bg="dark" ref={totalRef}>{total}</Badge>                
+            </h1>            
             <br /><br />
-            <input 
+            <input
+                className="input" 
                 pattern='[0-9]'
                 ref={inputRef}
                 type="number" 
                 placeholder='Enter a number'
                 />
-            <Button 
-                onClick={add}>+</Button>
-            <Button 
-                onClick={subtract}>-</Button>
-            <Button 
-                onClick={multiply}>*</Button>
-            <Button 
-                onClick={divide}>/</Button>
-            <Button 
-                variant="danger" 
-                onClick={clearInput}>Clear Input</Button>
-            <Button
-                variant="danger" 
-                onClick={clearTotal}>Clear Total</Button>
-            <Button 
-                variant="success"
-                onClick={ratesData}
-            >Get Rates</Button>            
-            </Form.Group>            
-        </Form>        
+            <br /> <br />
+            <div>
+                <Button 
+                    onClick={add}>+</Button>
+                <Button 
+                    onClick={subtract}>-</Button>
+                <Button 
+                    onClick={multiply}>*</Button>
+                <Button 
+                    onClick={divide}>/</Button>
+                <Button 
+                    variant="danger" 
+                    onClick={clearInput}>Clear Input</Button>
+                <Button
+                    variant="danger" 
+                    onClick={clearTotal}>Clear Total</Button>
+                <Button 
+                    variant="success"
+                    onClick={ratesData}
+                >Get Rates</Button>
+            </div>
+                        
+        </form>        
     </div>
   );
 }
