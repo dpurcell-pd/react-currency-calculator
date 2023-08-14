@@ -20,7 +20,10 @@ export default function Calculator() {
         "Swiss Franc",
         "Euro",
         "United States Dollar"
-    ];    
+    ];
+    
+   
+    
     
     const ratesData = async e => {
         let index = 0;
@@ -30,7 +33,7 @@ export default function Calculator() {
             const data = await res.json();
             const {rates} = data;            
             Object.entries(rates).forEach(([key, value]) => {
-                console.log(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${value}`);
+                console.log(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${value * total}`);
                 index++;
             })
         } catch (error) {
