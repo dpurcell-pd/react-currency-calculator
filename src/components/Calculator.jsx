@@ -5,8 +5,7 @@ import {Alert, Badge, Button} from "react-bootstrap";
 
 
 export default function Calculator() {
-    const inputRef = useRef(null); // <--- reference object for input element (stores current value)
-    
+    const inputRef = useRef(null); // <--- reference object for input element (stores current value)    
     const [total, setTotal] = useState(0); // <--- state variable and setter function for total    
     const [currenciesArray, setCurrenciesArray] = useState([]);
     const API_KEY = process.env.REACT_APP_API_KEY;
