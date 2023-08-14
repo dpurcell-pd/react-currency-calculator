@@ -1,38 +1,55 @@
-.App {
+* {
+  font-family: sans-serif;
   text-align: center;
+  /* margin: 0;
+  padding: 0;
+  */  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-image: url("https://www.nationsonline.org/gallery/World/currencies.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+input, button {
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.calculator {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;  
 }
 
-.App-link {
-  color: #61dafb;
+.example {
+  font-size: 18px;
+}
+.footer {
+  margin-top: 400px;
+  background-color: rgba(237, 183, 45, 0.8);
+  margin: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer h3 {
+  font-style: italic;
+  text-decoration: underline;
+  text-align: left;
+  
 }
+
+.instructions li {
+  font-size: 20px;
+  text-align: center;
+  list-style-position: inside;
+}
+
+.italic {
+  font-style: oblique;
+}
+
+
+
