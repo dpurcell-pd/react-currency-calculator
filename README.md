@@ -21,3 +21,7 @@ Installation instructions:
 1. Clone a copy of the repository to your local machine.
 2. Open the root project directory in your terminal, and run npm install to download node_modules.
 3. Run npm start to serve the application locally.  
+
+Live website link:
+
+https://velvety-peony-f70e5b.netlify.app/
