@@ -1,6 +1,7 @@
 import React, {useState, useRef, useEffect} from "react";
 import "react-bootstrap/dist/react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Currencies from "./Currencies";
 import {Alert, Badge, Button} from "react-bootstrap";
 
 
@@ -83,9 +84,10 @@ export default function Calculator() {
                 console.log(element);
             }) 
         }
-    }) // <--- updates console display with currency array on state update
+    }, ) // <--- updates console display with currency array on state update
 
   return (
+    <>
     <div className="calculator">
         <Alert variant="success">React Currency Calculator v1.0</Alert>       
         <form>
@@ -122,8 +124,10 @@ export default function Calculator() {
                 >Get Rates</Button>
             </div>
                         
-        </form>        
+        </form>
     </div>
+    <Currencies currencies={currenciesArray} />        
+    </>
   );
 }
 
