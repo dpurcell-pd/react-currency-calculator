@@ -1,10 +1,10 @@
 import React from 'react'
 import "./styles/Currencies.css";
 
-export default function Currencies({props}) {
+export default function Currencies(props) {
   return (
-    <div>
-        <h1>Currencies</h1>
+    <div className="container">
+        <h2>Currencies</h2>
     </div>
   )
 }

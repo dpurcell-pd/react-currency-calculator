@@ -1,0 +1,11 @@
+.container {
+    margin-top: 400px;
+    background-color: rgba(237, 183, 45, 0.8);
+    margin: auto;
+}
+
+.container, h2 {
+  font-style: italic;
+  text-decoration: underline;
+  text-align: left;
+}
