@@ -36,7 +36,7 @@ export default function Calculator() {
             const {rates} = data;
             if (total > 0) {
                 Object.entries(rates).forEach(([key, value]) => {
-                    arr.push(`${TOP_TEN_CURRENCIES_NAME[index]}(${key}):${(value * total).toFixed(3)}`); // <--- pushes formatted currency string to temp array 
+                    arr.push(`${TOP_TEN_CURRENCIES_NAME[index]} (${key}): ${(value * total).toFixed(3)}`); // <--- pushes formatted currency string to temp array 
                     index++;
                 })
             } else {
@@ -78,9 +78,6 @@ export default function Calculator() {
         e.preventDefault();
         setTotal(0); // <--- resets the total state variable 
     }
-
-    useEffect(() => {       
-    }, [currenciesArray]) // <--- updates console display with currency array on state update
 
   return (
     <>
