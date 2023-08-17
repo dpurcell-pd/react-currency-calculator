@@ -17,7 +17,7 @@ export default function Footer() {
             <li>Once you have found a number that you would like to see converted into a list of currencies, press the "Get Rates" button.</li>
             <div className='example'>
                 <p className='italic'>
-                    - Currently, this application only supports conversions from Euro to the top ten global currencies (as of August 2023), viewable in the browser console.
+                    - Currently, this application only supports conversions from Euro to the top ten global currencies (as of August 2023), rendered to the DOM in an ordered list.
                 </p>
             </div>
         </ol>        
