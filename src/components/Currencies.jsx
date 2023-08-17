@@ -6,7 +6,7 @@ export default function Currencies(props) {
   return (
     <div className="container">
       <ol>
-        {currencies.map(function (currency) {
+        {currencies.map((currency) => {
           {
             id++;
           }
