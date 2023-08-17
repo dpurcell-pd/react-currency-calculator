@@ -5,10 +5,11 @@ import Currencies from "./Currencies";
 import {Alert, Badge, Button} from "react-bootstrap";
 
 
-export default function Calculator() {
-    const inputRef = useRef(null); // <--- reference object for input element (stores current value)    
+export default function Calculator() {    
+    const inputRef = useRef(null); // <--- reference object for input element (stores current value)
+    const [displayCurrencies, setDisplayCurrencies] = useState(false);    
     const [total, setTotal] = useState(0); // <--- state variable and setter function for total    
-    const [currenciesArray, setCurrenciesArray] = useState([]);
+    const [currenciesArray, setCurrenciesArray] = useState([]);     
     const API_KEY = process.env.REACT_APP_API_KEY;
     const TOP_TEN_CURRENCIES = ["KWD","BHD","OMR","JOD","GBP","GIP","KYD","CHF","EUR","USD"] // <--- currencies for fetch URL
     const TOP_TEN_CURRENCIES_NAME = [
@@ -42,6 +43,7 @@ export default function Calculator() {
                 alert("To perform conversions, enter a number greater than 0 and update the total.");
             } 
             setCurrenciesArray(arr);           // <--- updates state with populated array
+            setDisplayCurrencies(true);
         } catch (error) {
             console.log(error);
         }
@@ -77,14 +79,8 @@ export default function Calculator() {
         setTotal(0); // <--- resets the total state variable 
     }
 
-    useEffect(() => {
-        if (currenciesArray.length > 0) {
-            console.clear();
-            currenciesArray.map(element => {
-                console.log(element);
-            }) 
-        }
-    }, ) // <--- updates console display with currency array on state update
+    useEffect(() => {       
+    }, [currenciesArray]) // <--- updates console display with currency array on state update
 
   return (
     <>
@@ -122,11 +118,13 @@ export default function Calculator() {
                     variant="success"
                     onClick={ratesData}
                 >Get Rates</Button>
-            </div>
-                        
+            </div>                        
         </form>
     </div>
-    <Currencies currencies={currenciesArray} />        
+    <Currencies 
+        currencies={currenciesArray} 
+        displayCurrencies={displayCurrencies}
+    />        
     </>
   );
 }

@@ -5,7 +5,9 @@ import "./App.css";
 function App() {  
   return ( 
     <>    
-      <Calculator />    
+      <Calculator />
+      <br />
+      <br />    
       <Footer />     
     </>
   ); 
