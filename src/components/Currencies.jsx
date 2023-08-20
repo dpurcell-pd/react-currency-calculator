@@ -1,17 +1,13 @@
 import "./styles/Currencies.css";
 
 export default function Currencies(props) {
-  const { currencies } = props;
-  let id = -1;
+  const { currencies } = props;  
   return (
     <div className="container">
       <ol>
-        {currencies.map((currency) => {
-          {
-            id++;
-          }
+        {currencies.map((currency, index) => {          
           return (
-            <li key={id} className="currency">
+            <li key={index} className="currency">
               {currency}
             </li>
           );
